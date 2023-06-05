@@ -73,7 +73,7 @@ router.get("/share/blogs/allBlogs", async (req, res)=>{
 	try {
 		await client.connect();
 		let db = client.db("funguy")
-		let data = await db.collection('blogs').find({}).sort({time: -1}).skip(page * 20).limit(20).toArray()
+		let data = await db.collection('blogs').find({}).sort({time: -1}).skip(page * 10).limit(10).toArray()
 		let total = await db.collection('blogs').find({}).count()
 		// let username = await db.collection('blogs').find({}).project({username: 1,_id: 0}).sort({time: -1}).skip(page * 20).limit(20).toArray()
 		// console.log(username)
